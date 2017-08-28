@@ -1,0 +1,14 @@
+applications:
+- name: articulate
+  instances: 1
+  memory: 750M
+  disk_quota: 1024M
+  routes:
+  - route: articulate-aeroscopic-nonemployment.cfapps.io
+  buildpack: https://github.com/cloudfoundry/java-buildpack.git
+  env:
+    JBP_CONFIG_OPEN_JDK_JRE: '{jre: {version: 1.8.0_45 }}'
+  services:
+  - attendee-service
+  path: ./target/articulate-0.0.1-SNAPSHOT.jar
+  stack: cflinuxfs2
